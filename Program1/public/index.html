@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+
+        var array = [];
+        function redirect() {
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+
+            var object = {
+                "name" : name ,
+                "phone" : phone
+            };
+
+            var objdata = JSON.stringify(object);
+            array.push(objdata);
+            console.log(array);
+            // localStorage.setItem("obj", objdata);
+            // localStorage.setItem("name", name);
+            // localStorage.setItem("phone", phone);
+            document.getElementById("name").value = "";
+            document.getElementById("phone").value = "";
+            alert("Data Entered");
+        }
+
+        function show() {
+            document.getElementById("val").innerHTML = "";
+            for(var i=0; i<array.length; i++) {
+                document.getElementById("val").innerHTML += array[i]+"</br>";
+            }
+        }
+
+        function empty() {
+            array = [];
+            // array.length = 0;
+            // while (array.length!==0)
+            // {
+            //     array.pop();
+            // }
+        }   
+
+    </script>
+    <title>Registration</title>
+</head>
+<body>
+    <div style="text-align: center;">
+    <form action="">
+        <table>
+            <tr>
+                <td>
+                    <input type="text" name="name" id="name" placeholder="Enter Your Name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="tel" name="phone" id="phone" placeholder="Enter Your Number">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="empty()">RESET</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="redirect()">SUBMIT</button>
+                    <button type="button" onclick="show()">SHOW</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    Resulted :-
+    <div id="val">
+
+    </div>
+
+</div>
+</body>
+</html>
