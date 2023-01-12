@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr=[];
+
+        function data(){
+            window.location.href = "/data";
+        }
+        
+        function show(){
+           var name=document.getElementById("name_id").value
+           var age=document.getElementById("age_id").value
+
+           alert("value get");
+
+           var obj={
+            "name":name,
+            "age":age
+           }
+           alert("obj created");
+
+           arr.push(obj)
+           alert("array added");
+
+           for(var i=0; i<arr.length; i++){
+            var objdata=arr[i];
+            alert("inside for")
+            document.getElementById("output").innerHTML+= objdata.name + "," + objdata.age + "<br>"
+           }
+           alert("success");
+        }
+
+
+    </script>
+</head>
+<body>
+    <div>
+        <form action="/page" method="post">
+            <table>
+                <tr>
+                    <td >Name :
+                        <input type="text" id="name_id" name="name" autofocus placeholder="enter your name">
+                    </td>
+                </tr>
+                <tr> 
+                    <td>Age :
+                        <input type="text" id="age_id" name="age" placeholder="enter your age" >
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="submit" onclick="submit()">SUBMIT</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="reset" onclick="reset()">RESET</button>
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="show()">SHOW</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="button" onclick="data()">Show data</button>
+                </td>
+            </tr>
+            </table>
+        </form>
+    </div>
+    <div id="output">
+
+    </div>
+</body>
+</html>
